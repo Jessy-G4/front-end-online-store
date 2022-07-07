@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
+import CategoriesCard from '../components/CategoriesList';
+import ProductsCard from '../components/ProductsList';
 
 class ProductsList extends React.Component {
     state = {
@@ -65,25 +67,18 @@ class ProductsList extends React.Component {
             </p>)}
           <Link to="/cart" data-testid="shopping-cart-button">carrinho</Link>
           { categoriesList.map((category) => (
-            <label htmlFor="categoryRadio" key={ category.id } data-testid="category">
-              <input
-                type="radio"
-                name="categoryRadio"
-                value={ category.name }
-                id="categoryRadio"
-              />
-              {category.name}
-            </label>
+            <CategoriesCard
+              key={ category.id }
+              name={ category.name }
+            />
           )) }
           { productsList.map((product) => (
-            <div
+            <ProductsCard
               key={ product.id }
-              data-testid="product"
-            >
-              <h3>{ product.title}</h3>
-              <img src={ product.thumbnail } alt={ product.title } />
-              <p>{product.price}</p>
-            </div>
+              title={ product.title }
+              thumbnail={ product.thumbnail }
+              price={ product.price }
+            />
           )) }
         </div>
       );
