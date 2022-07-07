@@ -1,9 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getCategories } from '../services/api';
 
 class ProductsList extends React.Component {
     state = {
       inputSearch: '',
+      categoriesList: [],
+    }
+
+    componentDidMount() {
+      this.callGetCategories();
+    }
+
+    callGetCategories = async () => {
+      const categories = await getCategories();
+      this.setState({
+        categoriesList: categories,
+      });
     }
 
     handleChange = (event) => {
@@ -14,7 +27,7 @@ class ProductsList extends React.Component {
     }
 
     render() {
-      const { inputSearch } = this.state;
+      const { inputSearch, categoriesList } = this.state;
       return (
         <div>
           <label htmlFor="inputSearch">
@@ -34,6 +47,17 @@ class ProductsList extends React.Component {
 
             </p>)}
           <Link to="/cart" data-testid="shopping-cart-button">carrinho</Link>
+          { categoriesList.map((category) => (
+            <label htmlFor="categoryRadio" key={ category.id } data-testid="category">
+              <input
+                type="radio"
+                name="categoryRadio"
+                value={ category.name }
+                id="categoryRadio"
+              />
+              {category.name}
+            </label>)) }
+
         </div>
       );
     }
