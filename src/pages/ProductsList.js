@@ -29,6 +29,14 @@ class ProductsList extends React.Component {
       });
     }
 
+    onRadioClick = async (event) => {
+      const { value } = event.target;
+      const products = await getProductsFromCategoryAndQuery(undefined, value);
+      this.setState({
+        productsList: products.results,
+      });
+    }
+
     callgetProductsFromCategoryAndQuery = async () => {
       const { inputSearch } = this.state;
       const products = await getProductsFromCategoryAndQuery(undefined, inputSearch);
@@ -68,6 +76,7 @@ class ProductsList extends React.Component {
           <Link to="/cart" data-testid="shopping-cart-button">carrinho</Link>
           { categoriesList.map((category) => (
             <CategoriesCard
+              onClick={ this.onRadioClick }
               key={ category.id }
               name={ category.name }
             />

@@ -5,11 +5,13 @@ class CategoriesCard extends React.Component {
   render() {
     const {
       name,
+      onClick,
     } = this.props;
 
     return (
       <label htmlFor="categoryRadio" data-testid="category">
         <input
+          onClick={ onClick }
           type="radio"
           name="categoryRadio"
           value={ name }
