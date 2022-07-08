@@ -82,13 +82,22 @@ class ProductsList extends React.Component {
             />
           )) }
           { productsList.map((product) => (
-            <ProductsCard
-              key={ product.id }
-              title={ product.title }
-              thumbnail={ product.thumbnail }
-              price={ product.price }
-              id={ product.id }
-            />
+            <>
+              <ProductsCard
+                key={ product.id }
+                title={ product.title }
+                thumbnail={ product.thumbnail }
+                price={ product.price }
+                id={ product.id }
+              />
+              <button
+                type="button"
+                data-testid="product-add-to-cart"
+                onClick={ this.sendToCar }
+              >
+                Enviar para o carrinho
+              </button>
+            </>
           )) }
         </div>
       );
