@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
-import CategoriesCard from '../components/CategoriesList';
-import ProductsCard from '../components/ProductsList';
+import CategoriesCard from '../components/CategoriesCard';
+import ProductsCard from '../components/ProductsCard';
 
 class ProductsList extends React.Component {
     state = {
