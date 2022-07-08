@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import CategoriesCard from '../components/CategoriesCard';
 import ProductsCard from '../components/ProductsCard';
-
+// criando PR
 class ProductsList extends React.Component {
     state = {
       inputSearch: '',
@@ -87,6 +87,7 @@ class ProductsList extends React.Component {
               title={ product.title }
               thumbnail={ product.thumbnail }
               price={ product.price }
+              id={ product.id }
             />
           )) }
         </div>
