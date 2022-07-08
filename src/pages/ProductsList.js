@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 import CategoriesCard from '../components/CategoriesCard';
 import ProductsCard from '../components/ProductsCard';
-
+// criando PR
 class ProductsList extends React.Component {
     state = {
       inputSearch: '',
