@@ -49,6 +49,7 @@ class ProductsList extends React.Component {
       const { inputSearch, categoriesList, productsList } = this.state;
       return (
         <div>
+          <Link to="/cart">Ir para Cart</Link>
           <label htmlFor="inputSearch">
             <input
               type="text"
@@ -82,22 +83,13 @@ class ProductsList extends React.Component {
             />
           )) }
           { productsList.map((product) => (
-            <>
-              <ProductsCard
-                key={ product.id }
-                title={ product.title }
-                thumbnail={ product.thumbnail }
-                price={ product.price }
-                id={ product.id }
-              />
-              <button
-                type="button"
-                data-testid="product-add-to-cart"
-                onClick={ this.sendToCar }
-              >
-                Enviar para o carrinho
-              </button>
-            </>
+            <ProductsCard
+              key={ product.id }
+              title={ product.title }
+              thumbnail={ product.thumbnail }
+              price={ product.price }
+              id={ product.id }
+            />
           )) }
         </div>
       );

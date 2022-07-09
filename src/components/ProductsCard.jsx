@@ -1,8 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+// import { getProductDetails } from '../services/api';
 
 class ProductsCard extends React.Component {
+  // state = {
+  //   product: [],
+  // }
+
+  // getProduct = async (id) => {
+  //   const productData = await getProductDetails(id);
+  //   this.setState((prevState) => (
+  //     { product: [...prevState.product, productData] }));
+  // }
+
+  // sendToCar = async () => {
+  //   const { id } = this.props;
+  //   await this.getProduct(id);
+  //   const { product } = this.state;
+  //   localStorage.setItem('product', JSON.stringify(product));
+  // }
+
   render() {
     const {
       title,
@@ -10,7 +28,6 @@ class ProductsCard extends React.Component {
       price,
       id,
     } = this.props;
-    console.log(id);
     return (
       <div
         data-testid="product"
@@ -25,6 +42,13 @@ class ProductsCard extends React.Component {
           Detalhes
 
         </Link>
+        <button
+          type="button"
+          data-testid="product-add-to-cart"
+          onClick={ this.sendToCar }
+        >
+          Enviar para o carrinho
+        </button>
       </div>
     );
   }

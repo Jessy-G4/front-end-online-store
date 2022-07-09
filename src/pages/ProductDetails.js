@@ -17,7 +17,6 @@ getProduct = async () => {
   const { match } = this.props;
   const productId = match.params.id;
   const productData = await getProductDetails(productId);
-  console.log(productData);
   this.setState({ product: productData });
 }
 
