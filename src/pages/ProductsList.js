@@ -37,7 +37,7 @@ class ProductsList extends React.Component {
       });
     }
 
-    callgetProductsFromCategoryAndQuery = async () => {
+    callGetProductsFromCategoryAndQuery = async () => {
       const { inputSearch } = this.state;
       const products = await getProductsFromCategoryAndQuery(undefined, inputSearch);
       this.setState({
@@ -62,18 +62,16 @@ class ProductsList extends React.Component {
           <button
             type="button"
             data-testid="query-button"
-            onClick={ this.callgetProductsFromCategoryAndQuery }
+            onClick={ this.callGetProductsFromCategoryAndQuery }
           >
             Pesquisar
           </button>
+          <Link to="/cart" data-testid="shopping-cart-button">Cart</Link>
           { inputSearch.length === 0
           && (
-            <p
-              data-testid="home-initial-message"
-            >
+            <p data-testid="home-initial-message">
               Digite algum termo de pesquisa ou escolha uma categoria.
             </p>)}
-          <Link to="/cart" data-testid="shopping-cart-button">carrinho</Link>
           { categoriesList.map((category) => (
             <CategoriesCard
               onClick={ this.onRadioClick }
