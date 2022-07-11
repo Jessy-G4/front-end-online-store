@@ -37,7 +37,7 @@ class Cart extends React.Component {
         // filter pra contar os produtos
         const quantity = products.filter((product) => product.id === id).length;
 
-        // adiciona uma nova chave dentro deles com a quantity
+        // adiciona uma nova chave dentro deles com a quantity.
         productsX.quantity = quantity;
         uniqueProducts.push(productsX);
       });
